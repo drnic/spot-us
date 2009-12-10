@@ -118,9 +118,6 @@ class User < ActiveRecord::Base
   
   has_attached_file :photo,
                     :styles      => { :thumb => '50x50#' },
-                    :storage => :s3,
-                    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-                    :bucket =>   S3_BUCKET,
                     :path        => "profiles/" <<
                                     ":attachment/:id_partition/" <<
                                     ":basename_:style.:extension",
@@ -202,6 +199,7 @@ class User < ActiveRecord::Base
   #We need this so Facebook can find friends on our local application even if they have not connect through connect
   #We then use the email hash in the database to later identify a user from Facebook with a local user
   def register_user_to_fb
+    return true if Rails.env == "test"
     users = {:email => email, :account_id => id}
     Facebooker::User.register([users])
     self.email_hash = Facebooker::User.hash_email(email)

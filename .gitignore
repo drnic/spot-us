@@ -1,5 +1,6 @@
 .DS_Store
 config/database.yml
+config/email.yml
 config/deploy.rb
 config/settings.yml
 config/newrelic.yml

@@ -4,9 +4,6 @@ class Group < ActiveRecord::Base
 
   has_attached_file :image,
                     :styles => { :thumb => '50x50#', :medium => "200x150#" },
-                    :storage => :s3,
-                    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-                    :bucket =>   S3_BUCKET,
                     :default_url => "/images/default_avatar.png",
                     :path        => "groups/:attachment/:id_partition/:basename_:style.:extension",
                     :url         => "groups/:attachment/:id_partition/:basename_:style.:extension"

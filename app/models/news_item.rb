@@ -63,9 +63,6 @@ class NewsItem < ActiveRecord::Base
             
   has_attached_file :featured_image,
                     :styles => { :thumb => '50x50#', :medium => "200x150#" },
-                    :storage => :s3,
-                    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-                    :bucket =>   S3_BUCKET,
                     :path => "news_items/" <<
                              ":attachment/:id_partition/" <<
                              ":basename_:style.:extension",

@@ -35,6 +35,9 @@ h3. setup configuration files - make any necessary edits to these if the default
 # cp config/email.example.yml config/email.yml
 # cp config/newrelic.example.yml config/newrelic.yml
 # cp config/settings.example.yml config/settings.yml
+# cp config/s3.example.yml config/s3.yml
+
+NOTE: The s3.yml is optional. If it doesn't exist, filesystem storage will be used for attachments.
 
 h3. run basic setup tasks
 
