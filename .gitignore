@@ -4,7 +4,6 @@ config/deploy.rb
 config/settings.yml
 config/newrelic.yml
 db/*.sqlite3
-db/schema.rb
 public/system
 public/coverage
 public/features_rcov
