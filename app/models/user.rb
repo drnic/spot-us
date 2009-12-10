@@ -148,9 +148,7 @@ class User < ActiveRecord::Base
       raise ArgumentError, "invalid subclass of #{inspect}"
     end
   end
-<<<<<<< HEAD
-=======
-  
+
 ################### facebook ######################
   #find the user in the database, first by the facebook user id and if that fails through the email hash
   def self.find_by_fb_user(fb_user)
@@ -202,7 +200,6 @@ class User < ActiveRecord::Base
   end
 
 ########### end facebook ##############
->>>>>>> 3d6254d... support for paperclip attachments stored on filesystem if no config/s3.yml available
 
   def citizen?
     self.is_a? Citizen

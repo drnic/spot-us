@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091130183022) do
+ActiveRecord::Schema.define(:version => 20090415193608) do
 
   create_table "affiliations", :force => true do |t|
     t.integer  "tip_id"
@@ -21,28 +21,6 @@ ActiveRecord::Schema.define(:version => 20091130183022) do
 
   add_index "affiliations", ["pitch_id"], :name => "index_affiliations_on_pitch_id"
   add_index "affiliations", ["tip_id"], :name => "index_affiliations_on_tip_id"
-
-  create_table "assignment_contributors", :force => true do |t|
-    t.integer  "assignment_id"
-    t.integer  "contributor_id"
-    t.string   "status",         :default => "pending"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "assignments", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "pitch_id"
-    t.string   "title"
-    t.text     "body"
-    t.text     "media_embed"
-    t.string   "status",      :default => "open"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "assignments", ["pitch_id"], :name => "index_assignments_on_pitch_id"
-  add_index "assignments", ["user_id"], :name => "index_assignments_on_user_id"
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -95,11 +73,9 @@ ActiveRecord::Schema.define(:version => 20091130183022) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "purchase_id"
-    t.string   "status",                                       :default => "unpaid"
-    t.decimal  "amount",        :precision => 15, :scale => 2
+    t.string   "status",                                     :default => "unpaid"
+    t.decimal  "amount",      :precision => 15, :scale => 2
     t.integer  "group_id"
-    t.string   "donation_type",                                :default => "payment"
-    t.integer  "credit_id"
   end
 
   add_index "donations", ["pitch_id"], :name => "index_donations_on_pitch_id"
@@ -237,17 +213,6 @@ ActiveRecord::Schema.define(:version => 20091130183022) do
     t.decimal  "amount",      :precision => 15, :scale => 2
   end
 
-  create_table "subscribers", :force => true do |t|
-    t.integer  "pitch_id"
-    t.string   "email"
-    t.string   "status",       :default => "requested"
-    t.string   "invite_token"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "subscribers", ["pitch_id"], :name => "index_subscribers_on_pitch_id"
-
   create_table "topic_memberships", :force => true do |t|
     t.integer  "member_id"
     t.string   "member_type"
@@ -288,8 +253,6 @@ ActiveRecord::Schema.define(:version => 20091130183022) do
     t.string   "zip"
     t.string   "phone"
     t.string   "country"
-    t.boolean  "notify_blog_posts",                       :default => false, :null => false
-    t.boolean  "notify_comments",                         :default => false
     t.boolean  "notify_tips",                             :default => false, :null => false
     t.boolean  "notify_pitches",                          :default => false, :null => false
     t.boolean  "notify_stories",                          :default => false, :null => false
@@ -302,8 +265,6 @@ ActiveRecord::Schema.define(:version => 20091130183022) do
     t.string   "activation_code"
     t.integer  "network_id"
     t.integer  "category_id"
-    t.integer  "fb_user_id",                :limit => 8
-    t.string   "email_hash"
   end
 
 end
