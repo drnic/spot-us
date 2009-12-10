@@ -6,7 +6,6 @@ config/newrelic.yml
 config/ey-cloud.yml
 config/s3.yml
 db/*.sqlite3
-db/schema.rb
 public/system
 public/coverage
 public/features_rcov
