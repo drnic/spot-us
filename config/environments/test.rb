@@ -28,3 +28,6 @@ end
 
 PAYPAL_POST_URL = "https://www.sandbox.paypal.com/cgi-bin/webscr"
 PAYPAL_EMAIL = "info+s_1240233800_per@spot.us"
+
+config.gem "rspec-rails", :lib => false, :version => "= 1.2.2"
+config.gem "webrat", :lib => false, :version => "= 0.4.4"
